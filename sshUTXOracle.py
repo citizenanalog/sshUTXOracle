@@ -89,10 +89,6 @@ def Ask_Node(command):
         if stdout.channel.recv_exit_status() != 0 or error:
             raise Exception(f"bitcoin-cli error: {error or 'Command failed without specific error'}")
 
-        # Debug print for successful command
-        print(f"bitcoin-cli command executed successfully: {podman_command}")
-        print(f"Output: {output}")
-
         # Return the answer as bytes
         return output.encode()
 
@@ -254,7 +250,7 @@ try:
 
         print("\nReading all blocks on " + price_day_date_utc + "...")
         print("This will take a few minutes (~144 blocks)...")
-        print("\nBlock Height\t Block Time(utc)\t\t\tCompletion %")
+        print("\nBlock Height\t Block Time(utc)\t\tCompletion %")
 
         block_height = price_day_block
         block_hash_b = Ask_Node(['getblockhash', str(block_height)])
