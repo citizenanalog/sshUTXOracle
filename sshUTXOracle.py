@@ -12,6 +12,7 @@ ssh = None
 
 # Global bitcoin_cli_options (uncomment and configure if needed)
 # bitcoin_cli_options = ["-rpcuser=user", "-rpcpassword=pass"]
+# not needed when using ssh into start9 node.
 bitcoin_cli_options = []
 
 def validate_ip(ip):
@@ -59,8 +60,8 @@ def Ask_Node(command):
         cli_command = ["bitcoin-cli"]
 
         # Add any configuration options from bitcoin_cli_options
-        for o in bitcoin_cli_options:
-            cli_command.append(str(o))
+        #for o in bitcoin_cli_options:
+        #    cli_command.append(str(o))
 
         # Add the user-provided command arguments, decoding bytes to hex if needed
         for arg in command:
